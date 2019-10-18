@@ -15,7 +15,7 @@ In the code implementation, we used the library function *sklearn.neighbors.Near
 
 <div align=center><img src="https://github.com/xiwd/BPAM/blob/master/results/com.png?raw=true"width="1000" height="450" /></div>
 
-<div align=center><img src="https://github.com/xiwd/BPAM/blob/master/results/var.png?raw=true" width="300" height="450" /></div>
+<div align=center><img src="https://github.com/xiwd/BPAM/blob/master/results/var.png?raw=true" width="400" height="450" /></div>
 
 <div align=center><img src="https://github.com/xiwd/BPAM/blob/master/results/par.png?raw=true" width="1000" height="450" /></div>
 
