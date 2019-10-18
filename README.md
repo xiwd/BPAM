@@ -14,9 +14,9 @@ We are sorry, because our mistakes have led to errors in the results of the expe
 In the code implementation, we used the library function *sklearn.neighbors.NearestNeighbors()* in python to get the user's k-nearest neighbors, but did not notice that the function's neighbors actually contain themselves, resulting in error. Due to type error, the prediction results of training sets in DMF is regarded as the prediction results of the test sets.We are very sorry for our carelessness again. Here we will update all the experimental results and upload the source code and the datasets of the algorithms for your verification. As we can see from the results, the effectiveness of our algorithm can still be guaranteed.
 
 
-<p align='center'>
-<img src= ''https://github.com/xiwd/BPAM/results/com.png'' title='images' style='max-width:800px'></img>
-</p>
+
+![image](https://github.com/xiwd/BPAM/results/com.png)
+
 
 <p align='center'>
 <img src=''https://github.com/xiwd/BPAM/results/var.png' title='images' style='max-width:600px'></img>
