@@ -47,12 +47,20 @@ def readTrainData(filename ='data/filmtrust/ratings.txt'):
     print(mtx)
     mtx = np.array(mtx)
     mdx = np.zeros([mtx.shape[0], mtx.shape[1]])
+    
+    mean_user = []
     for i in range(mtx.shape[0]):
-      for j in range(mtx.shape[1]):
-          if mtx[i][j] != 0:
-              mdx[i][j] = mtx[i][j]
-          else:
-              mdx[i][j] = np.mean(mtx[i])
+        temp = mtx[i]
+        if len(temp[temp != 0]) == 0:
+            mean_user.append(0)
+        else:
+            mean_user.append(np.mean(temp[temp != 0]))
+    for i in range(mtx.shape[0]):
+       for j in range(mtx.shape[1]):
+           if mtx[i][j] != 0:
+               mdx[i][j] = mtx[i][j]
+           else:
+               mdx[i][j] = mean_user[i]
 
    
     return mdx, numberOfUser, numberOfItem, mtx
