@@ -115,7 +115,7 @@ def predict_item_and_user(number_of_x, number_of_y, neighbor, mtx_np, k, att_wei
         nm.setup(input_n, hidden_n, 1)
         attention_rate = ar  # attention ratio
         att_weights_knn, att_correct_knn = nm.train(X_train, y_train, att_weights_knn, att_correct_knn,
-                                                     attention_rate, 100, 0.0001, 0.1)  # 将数据导入到bp神经网络中进行训练
+                                                     attention_rate, 100, 0.0001, 0.1)  # Importing data into BP neural network for training
 
 
         #Update att_weight and att_correct
