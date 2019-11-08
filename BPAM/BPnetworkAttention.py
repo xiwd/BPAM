@@ -77,7 +77,7 @@ class BPNeuralNetwork:
             total = 0.0
             for i in range(self.input_n - 1):
                 # print(attentionWeightKNN[i][j])
-                total += (self.input_cells[i] + attentionRate * attentionWeightKNN[i][j]) * self.input_weights[i][j]
+                total += self.input_cells[i] + (attentionRate * attentionWeightKNN[i][j] + self.input_weights[i][j])
             total += self.input_cells[self.input_n - 1] 
 
             self.hidden_cells[j] = sigmoid(total)
@@ -123,7 +123,7 @@ class BPNeuralNetwork:
         # update attention mechanism weights
         for i in range(self.input_n - 1):
             for h in range(self.hidden_n):
-                change = hidden_deltas[h] * self.input_weights[i][h] * attentionRate
+                change = hidden_deltas[h] * self.input_cells[i][h] * attentionRate
                 attentionWeightKNN[i][h] += learn * change + correct * att_correct_KNN[i][h]
                 att_correct_KNN[i][h] = change
 
