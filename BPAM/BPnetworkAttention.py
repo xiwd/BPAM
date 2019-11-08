@@ -123,7 +123,7 @@ class BPNeuralNetwork:
         # update attention mechanism weights
         for i in range(self.input_n - 1):
             for h in range(self.hidden_n):
-                change = hidden_deltas[h] * self.input_cells[i][h] * attentionRate
+                change = hidden_deltas[h] * self.input_cells[i] * attentionRate
                 attentionWeightKNN[i][h] += learn * change + correct * att_correct_KNN[i][h]
                 att_correct_KNN[i][h] = change
 
