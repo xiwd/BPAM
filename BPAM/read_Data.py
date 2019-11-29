@@ -8,7 +8,7 @@ from sklearn.neighbors import NearestNeighbors
 
 def unique(old_list):
     # Minimize the use_id and item_id in the dataset
-    count = 1
+    count = 0
     dic = {}
     for i in range(len(old_list)):
         if old_list[i] in dic:
