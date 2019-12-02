@@ -43,11 +43,16 @@ def get_neighbors(mdx, k, numberOfUser):
     dlist = list()
     nlist = list()
 
-    for user in range(1, numberOfUser):
+    for user in range(numberOfUser):
         for i in range(1, k + 1):
             ulist.append(user)
-        dlist += list(distance[user][1:])
-        nlist += list(neighbor[user][1:])
+            n_uesrs = neighbor[user] # 提取user对应的neighbor user
+            d_users = distance[user] # 提取user对应的neighbor user 的distance
+            user_index = n_uesrs.index(user) # 获得user自己在列表对应的index
+            del n_uesrs[user_index]
+            del d_users[user_index]
+            nlist += n_uesrs
+            dlist += d_users
 
     df_neighbor = DataFrame(columns=['user', 'neighbor', 'distance'])
     df_neighbor['user'] = ulist
@@ -58,8 +63,8 @@ def get_neighbors(mdx, k, numberOfUser):
     df_neighbor['similarity'] = 0.5 + 0.5 * df_neighbor['distance']
     df_neighbor.to_csv('user_neighbors.csv', index=False)
     new_neighbor = []
-    for i in range(len(neighbor)):
-        new_neighbor.append(neighbor[i][1:])
+    for i in range(len(nlist)):
+        new_neighbor.append(nlist[i])
     return new_neighbor
 
 
