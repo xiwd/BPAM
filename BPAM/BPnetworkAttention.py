@@ -77,7 +77,7 @@ class BPNeuralNetwork:
             total = 0.0
             for i in range(self.input_n - 1):
                 # print(attentionWeightKNN[i][j])
-                total += self.input_cells[i] + (attentionRate * attentionWeightKNN[i][j] + self.input_weights[i][j])
+                total += self.input_cells[i] * (attentionRate * attentionWeightKNN[i][j] + self.input_weights[i][j])
             total += self.input_cells[self.input_n - 1] 
 
             self.hidden_cells[j] = sigmoid(total)
